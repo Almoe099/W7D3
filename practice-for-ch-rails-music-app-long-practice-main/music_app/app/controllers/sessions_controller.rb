@@ -1,14 +1,17 @@
 class SessionsController < ApplicationController
+  before_action :require_logged_out, only: [:new, :create]
+  before_action :require_logged_in, only: [:destroy]
+
 
   def create
 
-    email = params[:users][:email]
-    password = params[:users][:password]
+    email = params[:user][:email]
+    password = params[:user][:password]
 
     @user = User.find_by_credentials(email, password)
 
     if @user
-      login(@user)
+      login!(@user)
       redirect_to user_url(@user)
     else
       @user = User.new(email: email)
