@@ -4,11 +4,11 @@
 
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <label for="email">Email:
-    <input type="text" id="email" name=" user[email] " value="<%= @user.email %>">
+    <input type="text" id="email" name="user[email]" value="<%= @user.email %>">
   </label>
 
   <label for="password">Password:
-    <input type="password" id="password" name=" user[password] " value="<%= @user.password %>">
+    <input type="password" id="password" name="user[password]" value="<%= @user.password %>">
   </label>
 
   <input type="submit" value="Login!">
